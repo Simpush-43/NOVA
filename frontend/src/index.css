@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+@theme {
+  /* Base palette */
+  --color-ink: #12141c;
+  --color-paper: #f4f5f7;
+  --color-surface: #ffffff;
+  --color-line: #dee1e6;
+  --color-line-strong: #c4c8d0;
+  --color-muted: #5b6270;
+  --color-muted-soft: #8b909c;
+
+  /* Brand accent — NOVA gold, used sparingly */
+  --color-gold: #d9a234;
+  --color-gold-soft: #f3e3c2;
+  --color-gold-ink: #7a5a17;
+
+  /* Functional status colors */
+  --color-teal: #1b7a6b;
+  --color-teal-soft: #dcede9;
+  --color-indigo: #5b6ebf;
+  --color-indigo-soft: #e2e5f5;
+  --color-rust: #b8492e;
+  --color-rust-soft: #f6e0da;
+  --color-slate: #5b6270;
+  --color-slate-soft: #e7e8ec;
+
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --shadow-panel: 0 1px 2px rgba(18, 20, 28, 0.06);
+  --shadow-float: 0 12px 32px rgba(18, 20, 28, 0.14);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  html {
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    background: var(--color-paper);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  ::selection {
+    background: var(--color-gold-soft);
+    color: var(--color-gold-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .input {
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-line-strong);
+    background: var(--color-surface);
+    padding: 0.55rem 0.75rem;
+    font-size: 0.875rem;
+    color: var(--color-ink);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .input:focus {
+    outline: none;
+    border-color: var(--color-ink);
+    box-shadow: 0 0 0 3px rgba(18, 20, 28, 0.08);
+  }
+  .input::placeholder {
+    color: var(--color-muted-soft);
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    border-radius: 0.5rem;
+    background: var(--color-ink);
+    color: white;
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 0.55rem 1rem;
+    transition: opacity 0.15s ease;
+  }
+  .btn-primary:hover {
+    opacity: 0.9;
+  }
+  .btn-primary:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-line-strong);
+    background: var(--color-surface);
+    color: var(--color-ink);
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 0.55rem 1rem;
+    transition: background 0.15s ease;
+  }
+  .btn-secondary:hover {
+    background: var(--color-paper);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    border-radius: 0.5rem;
+    color: var(--color-muted);
+    font-weight: 500;
+    font-size: 0.8125rem;
+    padding: 0.4rem 0.65rem;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .btn-ghost:hover {
+    background: var(--color-slate-soft);
+    color: var(--color-ink);
+  }
+
+  .panel {
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-panel);
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: var(--color-line-strong);
+    border-radius: 999px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
