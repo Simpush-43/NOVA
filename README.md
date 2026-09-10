@@ -22,7 +22,13 @@ dependencies, no compiler required to install) · Auth → JWT + bcrypt · Deplo
 - **Comments** — per-task discussion thread
 - **Activity feed** — auto-logged project history (who did what, when)
 - **Progress tracking** — live completion percentage per project
+## Live demo
 
+- **App:** https://nova-five-dun.vercel.app
+- **API:** https://nova-a62a.onrender.com/api/health
+
+Sign up with any email/password to try it — projects, tasks, invites, and the Kanban
+board are all fully functional on the deployed version.
 ## Project structure
 
 ```
